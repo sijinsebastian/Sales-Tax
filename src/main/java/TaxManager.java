@@ -14,13 +14,17 @@ public class TaxManager {
 
     private static void findSalesTax(Product product){
         if(salesTaxExemptedGoods.stream().noneMatch(product.getProductDescription()::contains)){
-            product.setSalesTax(product.getBasePrice()* salesTaxRate /100);
+            float salesTax = product.getBasePrice()* salesTaxRate /100;
+            salesTax = (float)Math.ceil(salesTax*20f)/20f; //Rounding to nearest 0.05
+            product.setSalesTax(salesTax);
         }
     }
 
     private static void findImportDuty(Product product){
         if (product.getIsImported()){
-            product.setImportDuty(product.getBasePrice()*importDutyRate/100);
+            float importDuty = product.getBasePrice()*importDutyRate/100;
+            importDuty = (float) Math.ceil(importDuty*20f)/20f; //Rounding to nearest 0.05
+            product.setImportDuty(importDuty);
         }
     }
 }
