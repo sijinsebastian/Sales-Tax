@@ -1,14 +1,13 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class SalesTaxTest {
+public class SalesTaxTest {
 
     @Test
-    void taxDomesticProducts() {
+    public void taxDomesticProducts() {
         List<String> shoppingList = new ArrayList<>();
         shoppingList.add("1 book at 12.49");
         shoppingList.add("1 music CD at 14.99");
@@ -21,11 +20,11 @@ class SalesTaxTest {
         expectedReceipt.add("Sales Taxes: 1.50");
         expectedReceipt.add("Total: 29.83");
 
-        assertEquals(expectedReceipt, SalesTax.createReceipt(shoppingList), "Receipts not correct for Domestic Products");
+        assertEquals(expectedReceipt, SalesTax.createReceipt(shoppingList));
     }
 
     @Test
-    void taxImportedProducts(){
+    public void taxImportedProducts(){
         List<String> shoppingList = new ArrayList<>();
         shoppingList.add("1 imported box of chocolates at 10.00");
         shoppingList.add("1 imported bottle of perfume at 47.50");
@@ -36,11 +35,11 @@ class SalesTaxTest {
         expectedReceipt.add("Sales Taxes: 7.65");
         expectedReceipt.add("Total: 65.15");
 
-        assertEquals(expectedReceipt, SalesTax.createReceipt(shoppingList), "Receipts not as expected for Imported Product");
+        assertEquals(expectedReceipt, SalesTax.createReceipt(shoppingList));
     }
 
     @Test
-    void taxDomesticAndImported() {
+    public void taxDomesticAndImported() {
         List<String> shoppingList = new ArrayList<>();
         shoppingList.add("1 imported bottle of perfume at 27.99");
         shoppingList.add("1 bottle of perfume at 18.99");
@@ -55,6 +54,6 @@ class SalesTaxTest {
         expectedReceipt.add("Sales Taxes: 6.70");
         expectedReceipt.add("Total: 74.68");
 
-        assertEquals(expectedReceipt, SalesTax.createReceipt(shoppingList), "Receipts not as expected for Imported Product");
+        assertEquals(expectedReceipt, SalesTax.createReceipt(shoppingList));
     }
 }
