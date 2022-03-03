@@ -40,7 +40,7 @@ class SalesTaxTest {
     }
 
     @Test
-    void taxDOmesticAndImported() {
+    void taxDomesticAndImported() {
         List<String> shoppingList = new ArrayList<>();
         shoppingList.add("1 imported bottle of perfume at 27.99");
         shoppingList.add("1 bottle of perfume at 18.99");
@@ -51,7 +51,7 @@ class SalesTaxTest {
         expectedReceipt.add("1 imported bottle of perfume: 32.19");
         expectedReceipt.add("1 bottle of perfume: 20.89");
         expectedReceipt.add("1 packet of headache pills: 9.75");
-        expectedReceipt.add("1 imported box of chocolates: 11.85");
+        expectedReceipt.add("1 box of imported chocolates: 11.85");
         expectedReceipt.add("Sales Taxes: 6.70");
         expectedReceipt.add("Total: 74.68");
 
