@@ -1,8 +1,8 @@
 public class Product {
     private String productDescription;
-    private int quantity = 0;
-    private Float basePrice = 0f;
-    private boolean isImported = false;
+    private int quantity;
+    private Float basePrice;
+    private boolean isImported;
 
     private Float salesTax = 0f;
     private Float importDuty = 0f;
@@ -45,4 +45,11 @@ public class Product {
         return importDuty;
     }
 
+    public Float getGrossPrice(){
+        return basePrice+ salesTax +importDuty;
+    }
+
+    public Float getNetTax(){
+        return salesTax +importDuty;
+    }
 }

@@ -13,7 +13,7 @@ public class TaxManager {
     }
 
     private static void findSalesTax(Product product){
-        if(!salesTaxExemptedGoods.stream().anyMatch(product.getProductDescription()::contains)){
+        if(salesTaxExemptedGoods.stream().noneMatch(product.getProductDescription()::contains)){
             product.setSalesTax(product.getBasePrice()* salesTaxRate /100);
         }
     }
@@ -23,6 +23,4 @@ public class TaxManager {
             product.setImportDuty(product.getBasePrice()*importDutyRate/100);
         }
     }
-
-
 }
