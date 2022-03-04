@@ -1,10 +1,11 @@
-import java.io.IOException;
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
-public class SalesTaxTest {
+public class ReceiptBuilderTest {
 
     @Test
     public void taxDomesticProducts() {
@@ -20,11 +21,11 @@ public class SalesTaxTest {
         expectedReceipt.add("Sales Taxes: 1.50");
         expectedReceipt.add("Total: 29.83");
 
-        assertEquals(expectedReceipt, SalesTax.createReceipt(shoppingList));
+        assertEquals(expectedReceipt, ReceiptBuilder.createReceipt(shoppingList));
     }
 
     @Test
-    public void taxImportedProducts(){
+    public void taxImportedProducts() {
         List<String> shoppingList = new ArrayList<>();
         shoppingList.add("1 imported box of chocolates at 10.00");
         shoppingList.add("1 imported bottle of perfume at 47.50");
@@ -35,7 +36,7 @@ public class SalesTaxTest {
         expectedReceipt.add("Sales Taxes: 7.65");
         expectedReceipt.add("Total: 65.15");
 
-        assertEquals(expectedReceipt, SalesTax.createReceipt(shoppingList));
+        assertEquals(expectedReceipt, ReceiptBuilder.createReceipt(shoppingList));
     }
 
     @Test
@@ -54,6 +55,6 @@ public class SalesTaxTest {
         expectedReceipt.add("Sales Taxes: 6.70");
         expectedReceipt.add("Total: 74.68");
 
-        assertEquals(expectedReceipt, SalesTax.createReceipt(shoppingList));
+        assertEquals(expectedReceipt, ReceiptBuilder.createReceipt(shoppingList));
     }
 }

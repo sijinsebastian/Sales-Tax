@@ -1,12 +1,13 @@
 public class Product {
     private String productDescription;
     private int quantity;
-    private Float basePrice;
+    private float basePrice;
     private boolean isImported;
 
-    private Float salesTax = 0f;
-    private Float importDuty = 0f;
-    public Product(String productDescription, int quantity , Float basePrice, boolean isImported) {
+    private float salesTax = 0f;
+    private float importDuty = 0f;
+
+    public Product(String productDescription, int quantity, float basePrice, boolean isImported) {
         this.productDescription = productDescription;
         this.basePrice = basePrice;
         this.quantity = quantity;
@@ -21,7 +22,7 @@ public class Product {
         return quantity;
     }
 
-    public Float getBasePrice() {
+    public float getBasePrice() {
         return basePrice;
     }
 
@@ -29,27 +30,27 @@ public class Product {
         return isImported;
     }
 
-    public void setSalesTax(Float salesTax) {
+    public void setSalesTax(float salesTax) {
         this.salesTax = salesTax;
     }
 
-    public Float getSalesTax( ) {
+    public float getSalesTax() {
         return salesTax;
     }
 
-    public void setImportDuty(Float importDuty) {
+    public void setImportDuty(float importDuty) {
         this.importDuty = importDuty;
     }
 
-    public Float getImportDuty( ) {
+    public float getImportDuty() {
         return importDuty;
     }
 
-    public Float getGrossPrice(){
-        return basePrice+ salesTax +importDuty;
+    public float getGrossPrice() {
+        return basePrice + salesTax + importDuty;
     }
 
-    public Float getNetTax(){
-        return salesTax +importDuty;
+    public float getNetTax() {
+        return salesTax + importDuty;
     }
 }

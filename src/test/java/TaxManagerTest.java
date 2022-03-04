@@ -1,5 +1,5 @@
-
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 public class TaxManagerTest {
@@ -8,8 +8,8 @@ public class TaxManagerTest {
     public void taxExemptedGoods() {
         Product product = new Product("book", 1, 10.24f, false);
         TaxManager.calculateTax(product);
-        assertEquals(0f,(Object) product.getSalesTax());
-        assertEquals(0f,(Object) product.getImportDuty());
+        assertEquals(0f, (Object) product.getSalesTax());
+        assertEquals(0f, (Object) product.getImportDuty());
     }
 
     @Test
@@ -25,14 +25,14 @@ public class TaxManagerTest {
         Product product = new Product("music CD", 1, 15f, false);
         TaxManager.calculateTax(product);
         assertEquals(1.5f, (Object) product.getSalesTax());
-        assertEquals(0f,(Object) product.getImportDuty());
+        assertEquals(0f, (Object) product.getImportDuty());
     }
 
     @Test
     public void taxedGoodsImported() {
         Product product = new Product("perfume", 1, 20f, true);
         TaxManager.calculateTax(product);
-        assertEquals(2.00f,(Object) product.getSalesTax());
-        assertEquals(1.00f,(Object) product.getImportDuty());
+        assertEquals(2.00f, (Object) product.getSalesTax());
+        assertEquals(1.00f, (Object) product.getImportDuty());
     }
 }
