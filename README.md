@@ -6,5 +6,6 @@ Import duty is set as 5% on all imported products. The program assumes that the 
 
 The program runs from the test units.
 
-To build the project execute the command: mvn clean install
+To build the project execute the command: mvn clean install 
+
 To run the unit test use the command: mvn test
